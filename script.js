@@ -1,4 +1,6 @@
 const form = document.querySelector('form');
+const resultadoValor = document.getElementById('resultadoValor');
+const resultadoDetalhes = document.getElementById('resultadoDetalhes');
 
 function converterTempoParaDecimal(tempoString) {
     const [hStr, mStr] = (tempoString || "00:00").split(":");
@@ -36,6 +38,7 @@ form.addEventListener("submit", (e) => {
     const adicional100 = totalExtra100 * valorHora * 2.0;
 
     const salarioTotal = salario + adicional50 + adicional100;
+    
+    resultadoValor.textContent = "R$ " + salarioTotal.toFixed(2).replace('.', ',');
 
-    alert("Salário Total: R$ " + salarioTotal.toFixed(2));
 });
