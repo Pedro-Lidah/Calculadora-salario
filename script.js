@@ -1,23 +1,36 @@
 const form = document.querySelector('form');
-const calcular = document.getElementById('botaoCalcular');
+
+function converterTempoParaDecimal(tempoString) {
+    const [hStr, mStr] = (tempoString || "00:00").split(":");
+    
+    const h = Number(hStr) || 0;
+    const m = Number(mStr) || 0;
+    
+    return h + m / 60;
+}
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const horasTrabalhadas = document.getElementById('horasTrabalhadas').value;
-    const horaExtra = document.getElementById('horaExtra').value || "00:00";
-    const horaExtra50 = document.getElementById('horaExtra50').value || "00:00";
-    const valorHora = parseFloat(document.getElementById('valorHora').value);
+    let valorHoraInput = document.getElementById('valorHora').value;
+    
+    valorHoraInput = valorHoraInput.replace(',', '.'); 
+    
+    const valorHora = parseFloat(valorHoraInput);
 
-    const [hTrab, mTrab] = horasTrabalhadas.split(":").map(Number);
-    const totalHoras = hTrab + mTrab / 60;
+    if (isNaN(valorHora) || valorHora <= 0) {
+        alert("Por favor, preencha o campo 'Pagamento por hora Trabalhada' com um valor decimal válido (Ex: 15.50 ou 15,50).");
+        return; 
+    }
 
-    const [hExtra50, mExtra50] = horaExtra50.split(":").map(Number);
-    const totalExtra50 = hExtra50 + mExtra50 / 60;
+    const horasTrabalhadasStr = document.getElementById('horasTrabalhadas').value;
+    const horaExtra50Str = document.getElementById('horaExtra50').value;
+    const horaExtra100Str = document.getElementById('horaExtra').value;
 
-    const [hExtra100, mExtra100] = horaExtra.split(":").map(Number);
-    const totalExtra100 = hExtra100 + mExtra100 / 60;
-
+    const totalHoras = converterTempoParaDecimal(horasTrabalhadasStr);
+    const totalExtra50 = converterTempoParaDecimal(horaExtra50Str);
+    const totalExtra100 = converterTempoParaDecimal(horaExtra100Str);
+    
     const salario = totalHoras * valorHora;
     const adicional50 = totalExtra50 * valorHora * 1.5;
     const adicional100 = totalExtra100 * valorHora * 2.0;

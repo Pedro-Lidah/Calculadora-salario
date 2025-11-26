@@ -14,15 +14,16 @@
 
     <main>
         <form>
-            Horas Trabalhadas <input type="time" id="horasTrabalhadas" placeholder="Horas Trabalhadas">
-            Horas Extra (50%) <input type="time" id="horaExtra50" placeholder="Horas Extra (50%)">
-            Horas Extra (100%) <input type="time" id="horaExtra" placeholder="Horas Extra (100%)">
-            <input type="number" id="valorHora" step="0.01" placeholder="Pagamento por hora Trabalhada">
+    Horas Trabalhadas <input type="text" id="horasTrabalhadas" placeholder="(HH:MM)">
+    Horas Extra (50%) <input type="text" id="horaExtra50" placeholder="(HH:MM)">
+    Horas Extra (100%) <input type="text" id="horaExtra" placeholder="(HH:MM)">
+    
+    <input type="number" id="valorHora" step="0.01" placeholder="Pagamento por hora Trabalhada" required>
 
-            <div id="botoes">
-                <button type="submit" id="botaoCalcular">Calcular</button>
-            </div>
-        </form>
+    <div id="botoes">
+        <button type="submit" id="botaoCalcular">Calcular</button>
+    </div>
+</form>
     </main>
     </div>
     <footer>
