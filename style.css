@@ -11,7 +11,7 @@ body{
     background-color: rgb(161, 177, 179);
     border-radius: 20px;
     padding: 3%;
-    height: 115%;
+    height: 125%;
     width: 27%;
     font-family: "Alfa Slab One", serif;
     font-weight: 400;
@@ -67,7 +67,7 @@ form{
     border: none;
 }
 
-#resultadoBloco, #diasTrabalhadosNormais, #diasTrabalhadosExtra50, #diasTrabalhadosExtra100{
+#resultadoBloco, #diasTrabalhadosNormais, #diasTrabalhadosExtra50, #diasTrabalhadosExtra100, #diasTrabalhadosTotal{
     background-color: rgb(233, 237, 238);
     font-family: "Alfa Slab One", serif;
     font-weight: 400;
@@ -80,7 +80,7 @@ form{
     box-sizing: border-box;
 }
 
-#diasTrabalhadosNormais, #diasTrabalhadosExtra50, #diasTrabalhadosExtra100{
+#diasTrabalhadosNormais, #diasTrabalhadosExtra50, #diasTrabalhadosExtra100, #diasTrabalhadosTotal{
     margin-bottom: 4%;
     margin-top: 3%;
     display: flex;
