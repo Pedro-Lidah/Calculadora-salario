@@ -4,6 +4,7 @@ const resultadoDetalhes = document.getElementById('resultadoDetalhes');
 const diasTrabalhadosNormais = document.getElementById('diasTrabalhadosNormais');
 const diasTrabalhadosExtra50 = document.getElementById('diasTrabalhadosExtra50');
 const diasTrabalhadosExtra100 = document.getElementById('diasTrabalhadosExtra100'); 
+const diasTrabalhadosTotal = document.getElementById('diasTrabalhadosTotal');
 
 function converterTempoParaDecimal(tempoString) {
     const [hStr, mStr] = (tempoString || "00:00").split(":");
@@ -47,4 +48,5 @@ form.addEventListener("submit", (e) => {
     diasTrabalhadosNormais.textContent = (totalHoras /8).toFixed(2).replace('.', ',') + " Dias Trabalhados";
     diasTrabalhadosExtra50.textContent = (totalExtra50/8).toFixed(2).replace('.', ',') + " Dias Extra 50%";
     diasTrabalhadosExtra100.textContent = (totalExtra100/8).toFixed(2).replace('.', ',') + " Dias Extra 100%";
+    diasTrabalhadosTotal.textContent = ((totalHoras + totalExtra50 + totalExtra100)/8).toFixed(2).replace('.', ',') + " Dias Trabalhados Total";
 });
